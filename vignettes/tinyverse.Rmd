@@ -60,7 +60,7 @@ miceFast:
 
 * badges are reevaluated daily.
 
-## tidyverse vs tidyverse
+## tinyverse vs tidyverse
 
 The `tidyverse` is an opinionated collection of R packages designed for data science. 
 All packages share an underlying design philosophy, grammar, and data structures. 
