@@ -1,3 +1,5 @@
+# pacs 0.5.1.9000
+
 # pacs 0.5.1
 
 * due to instability issues with "crandb", the lifeduration and timemachine functions have been adjusted to fetch data directly from CRAN by default.
