@@ -1,3 +1,8 @@
+# pacs 0.4.10.9000
+
+* add NEWS file related functions, pac_news and pac_compare_news.
+* improve code base.
+
 # pacs 0.4.10
 
 * remove the not needed testthat log file.
