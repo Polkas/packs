@@ -1,141 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/articles/GettingStarted.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/articles/tinyverse.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/app_deps.html</loc>
-  </url>
-  <url>
-    <loc>/reference/app_size.html</loc>
-  </url>
-  <url>
-    <loc>/reference/available_packages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/bio_releases.html</loc>
-  </url>
-  <url>
-    <loc>/reference/biocran_repos.html</loc>
-  </url>
-  <url>
-    <loc>/reference/checked_packages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compareVersionsMax.html</loc>
-  </url>
-  <url>
-    <loc>/reference/compareVersionsMin.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cran_flavors.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dir_size.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/lib_validate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/lock_validate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/match_flavors.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_checkpage.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_checkred.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_compare_namespace.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_compare_versions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_deps.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_deps_dev.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_deps_heavy.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_deps_timemachine.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_deps_user.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_description.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_health.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_isin.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_islast.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_last.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_lifeduration.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_namespace.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_size.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_timemachine.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_true_size.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pac_validate.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pacs_base.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pacs_lifeduration.html</loc>
-  </url>
-  <url>
-    <loc>/reference/standard_args.html</loc>
-  </url>
-  <url>
-    <loc>/reference/validate_online.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/articles/GettingStarted.html</loc></url>
+<url><loc>/articles/index.html</loc></url>
+<url><loc>/articles/tinyverse.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/app_deps.html</loc></url>
+<url><loc>/reference/app_size.html</loc></url>
+<url><loc>/reference/available_packages.html</loc></url>
+<url><loc>/reference/bio_releases.html</loc></url>
+<url><loc>/reference/biocran_repos.html</loc></url>
+<url><loc>/reference/checked_packages.html</loc></url>
+<url><loc>/reference/compareVersionsMax.html</loc></url>
+<url><loc>/reference/compareVersionsMin.html</loc></url>
+<url><loc>/reference/cran_flavors.html</loc></url>
+<url><loc>/reference/dir_size.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/lib_validate.html</loc></url>
+<url><loc>/reference/lock_validate.html</loc></url>
+<url><loc>/reference/match_flavors.html</loc></url>
+<url><loc>/reference/pac_checkpage.html</loc></url>
+<url><loc>/reference/pac_checkred.html</loc></url>
+<url><loc>/reference/pac_compare_namespace.html</loc></url>
+<url><loc>/reference/pac_compare_versions.html</loc></url>
+<url><loc>/reference/pac_deps.html</loc></url>
+<url><loc>/reference/pac_deps_dev.html</loc></url>
+<url><loc>/reference/pac_deps_heavy.html</loc></url>
+<url><loc>/reference/pac_deps_timemachine.html</loc></url>
+<url><loc>/reference/pac_deps_user.html</loc></url>
+<url><loc>/reference/pac_description.html</loc></url>
+<url><loc>/reference/pac_health.html</loc></url>
+<url><loc>/reference/pac_isin.html</loc></url>
+<url><loc>/reference/pac_islast.html</loc></url>
+<url><loc>/reference/pac_last.html</loc></url>
+<url><loc>/reference/pac_lifeduration.html</loc></url>
+<url><loc>/reference/pac_namespace.html</loc></url>
+<url><loc>/reference/pac_size.html</loc></url>
+<url><loc>/reference/pac_timemachine.html</loc></url>
+<url><loc>/reference/pac_true_size.html</loc></url>
+<url><loc>/reference/pac_validate.html</loc></url>
+<url><loc>/reference/pacs_base.html</loc></url>
+<url><loc>/reference/pacs_lifeduration.html</loc></url>
+<url><loc>/reference/standard_args.html</loc></url>
+<url><loc>/reference/validate_online.html</loc></url>
 </urlset>
+
