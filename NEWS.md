@@ -1,4 +1,9 @@
-# pacs 0.5.1
+# pacs 0.5.1.9000
+
+* add NEWS file related functions, pac_news and pac_compare_news.
+* improve code base.
+
+# pacs 
 
 * due to instability issues with "crandb", the lifeduration and timemachine functions have been adjusted to fetch data directly from CRAN by default.
 * protect against 400 results from crandb. Please use new options if needed `options(pacs.crandb_ntry = 3)` and `options(pacs.crandb_nsleep = 0.1)` to control crandb fetch.

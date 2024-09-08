@@ -256,50 +256,6 @@ expand_dependency <- function(fields) {
   }
 }
 
-cran_archive_file <- function(pac, version, repos, file) {
-  last_version <- pac_last(pac, repos)
-
-  if (isTRUE(!is.null(version) && version != last_version)) {
-    base_url <- sprintf("https://cran.r-project.org/src/contrib/Archive/%s", pac)
-  } else {
-    base_url <- "https://cran.r-project.org/src/contrib"
-    version <- last_version
-  }
-
-  d_url <- sprintf(
-    "%s/%s_%s.tar.gz",
-    base_url,
-    pac,
-    version
-  )
-
-  temp_tar <- tempfile(fileext = ".tar.gz")
-
-  download <- try(
-    {
-      suppressWarnings(utils::download.file(d_url,
-        destfile = temp_tar,
-        quiet = TRUE
-      ))
-    },
-    silent = TRUE
-  )
-
-  if (inherits(download, "try-error")) {
-    result <- structure(list(), package = pac, version = version)
-  } else {
-    temp_dir <- tempdir()
-    utils::untar(temp_tar, exdir = temp_dir)
-    # tabs are not acceptable
-    result <- switch(file,
-      DESCRIPTION = as.list(read.dcf(file.path(temp_dir, pac, "DESCRIPTION"))[1, ]),
-      NAMESPACE = readLines(file.path(temp_dir, pac, "NAMESPACE"), warn = FALSE)
-    )
-  }
-  unlink(temp_tar)
-  result
-}
-
 read_html_table <- function(table_lines) {
   rr_range <- grep("</?table[^>]*>", table_lines)
   if (length(rr_range) != 2) {
