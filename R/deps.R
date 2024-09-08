@@ -254,7 +254,12 @@ app_deps <- function(path = ".",
       if (nrow(app_deps_recursive) == 0) {
         return(NA)
       }
-      app_deps_recursive <- stats::aggregate(app_deps_recursive[, c("Version"), drop = FALSE], list(Package = app_deps_recursive$Package), pacs::compareVersionsMax)
+      app_deps_recursive$Version <- as.character(app_deps_recursive$Version)
+      app_deps_recursive <- stats::aggregate(
+        app_deps_recursive[, c("Version"), drop = FALSE],
+        list(Package = app_deps_recursive$Package),
+        pacs::compareVersionsMax
+      )
       app_deps_recursive$Package <- as.character(app_deps_recursive$Package)
       app_deps_recursive$Direct <- app_deps_recursive$Package %in% app_deps
       return(app_deps_recursive)

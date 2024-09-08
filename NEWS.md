@@ -1,6 +1,7 @@
 # pacs 0.5.1.9000
 
 * update the tinyverse vignette with a new badge url.
+* fix a problem with app_deps on R 3.6.
 
 # pacs 0.5.1
 
