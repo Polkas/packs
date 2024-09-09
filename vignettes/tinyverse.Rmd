@@ -48,19 +48,19 @@ Summing up, each badge constraint:
 
 `https://tinyverse.netlify.app/`
 
-`https://tinyverse.netlify.com/badge/<package>`
+`https://tinyverse.netlify.app/badge/<package>`
 
 Examples:
 
 dplyr:  
-[![](https://tinyverse.netlify.com/badge/dplyr)](https://CRAN.R-project.org/package=dplyr)
+[![](https://tinyverse.netlify.app/badge/dplyr)](https://CRAN.R-project.org/package=dplyr)
 
 miceFast:   
-[![](https://tinyverse.netlify.com/badge/miceFast)](https://CRAN.R-project.org/package=miceFast)
+[![](https://tinyverse.netlify.app/badge/miceFast)](https://CRAN.R-project.org/package=miceFast)
 
 * badges are reevaluated daily.
 
-## tidyverse vs tidyverse
+## tinyverse vs tidyverse
 
 The `tidyverse` is an opinionated collection of R packages designed for data science. 
 All packages share an underlying design philosophy, grammar, and data structures. 
@@ -70,22 +70,22 @@ Even `tidyverse` looks to go toward `tinyverse` if we check their lower-level pa
 
 The core `tidyverse` packages:
 
-`ggplot2`: [![](https://tinyverse.netlify.com/badge/ggplot2)](https://CRAN.R-project.org/package=ggplot2)  
-`tibble`: [![](https://tinyverse.netlify.com/badge/tibble)](https://CRAN.R-project.org/package=tibble)  
-`tidyr`: [![](https://tinyverse.netlify.com/badge/tidyr)](https://CRAN.R-project.org/package=tidyr)  
-`readr`: [![](https://tinyverse.netlify.com/badge/readr)](https://CRAN.R-project.org/package=readr)  
-`purrr`: [![](https://tinyverse.netlify.com/badge/purrr)](https://CRAN.R-project.org/package=purrr)  
-`dplyr`: [![](https://tinyverse.netlify.com/badge/dplyr)](https://CRAN.R-project.org/package=dplyr)  
-`stringr`: [![](https://tinyverse.netlify.com/badge/stringr)](https://CRAN.R-project.org/package=stringr)  
-`forcats`: [![](https://tinyverse.netlify.com/badge/forcats)](https://CRAN.R-project.org/package=forcats)  
+`ggplot2`: [![](https://tinyverse.netlify.app/badge/ggplot2)](https://CRAN.R-project.org/package=ggplot2)  
+`tibble`: [![](https://tinyverse.netlify.app/badge/tibble)](https://CRAN.R-project.org/package=tibble)  
+`tidyr`: [![](https://tinyverse.netlify.app/badge/tidyr)](https://CRAN.R-project.org/package=tidyr)  
+`readr`: [![](https://tinyverse.netlify.app/badge/readr)](https://CRAN.R-project.org/package=readr)  
+`purrr`: [![](https://tinyverse.netlify.app/badge/purrr)](https://CRAN.R-project.org/package=purrr)  
+`dplyr`: [![](https://tinyverse.netlify.app/badge/dplyr)](https://CRAN.R-project.org/package=dplyr)  
+`stringr`: [![](https://tinyverse.netlify.app/badge/stringr)](https://CRAN.R-project.org/package=stringr)  
+`forcats`: [![](https://tinyverse.netlify.app/badge/forcats)](https://CRAN.R-project.org/package=forcats)  
 
 Examples of random `tinyverse` packages, bright green or green badges:
 
-`Rcpp`: [![](https://tinyverse.netlify.com/badge/Rcpp)](https://CRAN.R-project.org/package=Rcpp)  
-`rlang`: [![](https://tinyverse.netlify.com/badge/rlang)](https://CRAN.R-project.org/package=rlang)  
-`renv`: [![](https://tinyverse.netlify.com/badge/renv)](https://CRAN.R-project.org/package=renv)  
-`cat2cat`: [![](https://tinyverse.netlify.com/badge/cat2cat)](https://CRAN.R-project.org/package=cat2cat)  
-`runner`: [![](https://tinyverse.netlify.com/badge/runner)](https://CRAN.R-project.org/package=runner)  
+`Rcpp`: [![](https://tinyverse.netlify.app/badge/Rcpp)](https://CRAN.R-project.org/package=Rcpp)  
+`rlang`: [![](https://tinyverse.netlify.app/badge/rlang)](https://CRAN.R-project.org/package=rlang)  
+`renv`: [![](https://tinyverse.netlify.app/badge/renv)](https://CRAN.R-project.org/package=renv)  
+`cat2cat`: [![](https://tinyverse.netlify.app/badge/cat2cat)](https://CRAN.R-project.org/package=cat2cat)  
+`runner`: [![](https://tinyverse.netlify.app/badge/runner)](https://CRAN.R-project.org/package=runner)  
 
 ## R package Dependencies
 
@@ -170,10 +170,10 @@ When `tinytest` and `testthat` are in the Suggests field of another package (e.g
 Dependencies from the end user perspective:
 
 `tinytest`:  
-[![](https://tinyverse.netlify.com/badge/tinytest)](https://CRAN.R-project.org/package=tinytest)
+[![](https://tinyverse.netlify.app/badge/tinytest)](https://CRAN.R-project.org/package=tinytest)
 
 `testthat`:  
-[![](https://tinyverse.netlify.com/badge/testthat)](https://CRAN.R-project.org/package=testthat)
+[![](https://tinyverse.netlify.app/badge/testthat)](https://CRAN.R-project.org/package=testthat)
 
 ## How to reduce the number of dependencies
 
@@ -199,10 +199,10 @@ func <- function() {
 ```
 
 `parsnip`:  
-[![](https://tinyverse.netlify.com/badge/parsnip)](https://CRAN.R-project.org/package=parsnip)
+[![](https://tinyverse.netlify.app/badge/parsnip)](https://CRAN.R-project.org/package=parsnip)
 
 `caret`:  
-[![](https://tinyverse.netlify.com/badge/testthat)](https://CRAN.R-project.org/package=testthat)
+[![](https://tinyverse.netlify.app/badge/testthat)](https://CRAN.R-project.org/package=testthat)
 
 `parsnip` and `caret` packages are examples that apply this strategy.
 It could be quickly confirmed by looking for `requireNamespace` phrase with github search, from each repo.
@@ -257,7 +257,7 @@ cat(pacs::pac_true_size("devtools", exclude_joint = 1L) / 10**6, "MB", "\n")
 
 It is crucial to check the number of dependencies too:
 
-[![](https://tinyverse.netlify.com/badge/devtools)](https://CRAN.R-project.org/package=devtools)
+[![](https://tinyverse.netlify.app/badge/devtools)](https://CRAN.R-project.org/package=devtools)
 
 ```r
 # 70 recursive dependencies
