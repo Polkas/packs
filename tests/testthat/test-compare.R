@@ -41,3 +41,18 @@ test_that("pacs::pac_comapre_namespace offline", {
   mockery::stub(pac_compare_namespace_offline, "is_online", FALSE)
   expect_error(pac_compare_namespace_offline("memoise", "0.2.1", "2.0.0"), "is_online\\(\\) is not TRUE")
 })
+
+
+test_that("pacs::pac_compare_news", {
+  skip_if_offline()
+  expect_identical(pac_compare_news("memoise", "2.0.0", "22.4.0"), NA)
+  expect_error(pac_compare_news("memoise", "22.8.0", "22.4.0"), "compareVersion")
+  expect_identical(pac_compare_news("WRONG"), NA)
+})
+
+test_that("pacs::pac_compare_news online", {
+  skip_if_offline()
+  expect_true(length(pac_compare_news("dplyr", "0.7.1", "1.0.0")) > 0)
+  expect_true(length(pac_compare_news("memoise", old = "1.0.0")) > 0)
+  expect_true(length(pac_compare_news("memoise", "1.0.0", "2.0.0")) > 0)
+})

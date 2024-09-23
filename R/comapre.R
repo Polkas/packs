@@ -25,12 +25,9 @@ pac_compare_versions <- function(pac,
                                  lib.loc = .libPaths(),
                                  repos = "https://cran.rstudio.com/") {
   fields <- expand_dependency(fields)
-  stopifnot((length(pac) == 1) && is.character(pac))
-  stopifnot(is.null(old) || (length(old) == 1) && is.character(old))
-  stopifnot(is.null(new) || (length(new) == 1) && is.character(new))
-  stopifnot(is.character(repos))
-  stopifnot(is.null(lib.loc) || (all(lib.loc %in% .libPaths()) && (length(list.files(lib.loc)) > 0)))
+  validate_compare_input(pac, old, new, lib.loc, repos)
   stopifnot(is_online())
+
 
   if (isFALSE(pac_isin(pac, repos))) {
     message(
@@ -101,12 +98,9 @@ pac_compare_namespace <- function(pac,
                                   new = NULL,
                                   lib.loc = .libPaths(),
                                   repos = "https://cran.rstudio.com/") {
-  stopifnot((length(pac) == 1) && is.character(pac))
-  stopifnot(is.null(old) || (length(old) == 1) && is.character(old))
-  stopifnot(is.null(new) || (length(new) == 1) && is.character(new))
-  stopifnot(is.character(repos))
-  stopifnot(is.null(lib.loc) || (all(lib.loc %in% .libPaths()) && (length(list.files(lib.loc)) > 0)))
+  validate_compare_input(pac, old, new, lib.loc, repos)
   stopifnot(is_online())
+
 
   if (isFALSE(pac_isin(pac, repos))) {
     message(
@@ -162,3 +156,78 @@ pac_compare_namespace <- function(pac,
 
   structure(result, package = pac, old = old, new = new)
 }
+
+#' Compare NEWS files between specific CRAN packages versions
+#' @description using the remote github CRAN mirror to compare NEWS files between specific packages versions.
+#' @inheritParams standard_args
+#' @param repos `character` vector repositories URLs to use. Used only for the validation. Default `https://cran.rstudio.com/`
+#' @return `character` with NEWS content between specific versions.
+#' @export
+#' @examples
+#' \dontrun{
+#' pacs::pac_compare_news("shiny", "1.0.0", "1.6.0")
+#' # local version to newest one
+#' pacs::pac_compare_news("shiny")
+#' }
+pac_compare_news <- function(pac,
+                             old = NULL,
+                             new = NULL,
+                             lib.loc = .libPaths(),
+                             repos = "https://cran.rstudio.com/") {
+
+
+  validate_compare_input(pac, old, new, lib.loc, repos)
+  stopifnot(is_online())
+
+  if (isFALSE(pac_isin(pac, repos))) {
+    return(NA)
+  }
+
+  if (is.null(old)) {
+    stopifnot(pac %in% rownames(installed_packages(lib.loc = lib.loc)))
+    old <- pac_description(pac, local = TRUE)$Version
+  }
+
+  if (is.null(new)) {
+    new <- pac_last(pac)
+  }
+
+  stopifnot(utils::compareVersion(new, old) >= 0)
+
+  if (utils::compareVersion(new, old) == 0) {
+    return(NA)
+  }
+
+  version_pattern <- function(version) {
+      paste0("#.*", version)
+  }
+
+  last_version <- pac_last(pac, repos = repos)
+  pac_news <- pac_news(pac, last_version, lib.loc = lib.loc, repos = repos)
+
+
+  old_version_reg <- regexpr(version_pattern(old), pac_news)
+  which_matched_old <- which(old_version_reg > 0)[1]
+  old_version_pos <- if (isTRUE(which_matched_old > 0)) {
+    which_matched_old
+  } else {
+    NA
+  }
+
+  new_version_reg <- regexpr(version_pattern(new), pac_news)
+  which_matched_new <- which(new_version_reg > 0)[1]
+  new_version_pos <- if (isTRUE(which_matched_new > 0)) {
+    which_matched_new
+  } else {
+    NA
+  }
+
+  if (is.na(old_version_pos) || is.na(new_version_pos)) {
+    return(NA)
+  }
+
+  result <- pac_news[new_version_pos:max(c(old_version_pos - 1, 1))]
+  result
+}
+
+

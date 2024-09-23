@@ -8,8 +8,8 @@ test_that("pac_parse_namespace", {
 
 test_that("pacs::pac_namespace", {
   skip_if_offline()
-  expect_identical(pac_readnamespace_raw("dplyr", "0.0.0.0.1"), structure(list(), package = "dplyr", version = "0.0.0.0.1"))
-  expect_true(length(cran_archive_file("dplyr", "0.8.0", repos = "https://cran.rstudio.com/", "NAMESPACE")) == 498)
+  expect_identical(pac_readnamespace_raw("dplyr", "0.0.0.0.1"), structure(NA, package = "dplyr", version = "0.0.0.0.1"))
+  expect_true(length(read_cran_file("dplyr", "0.8.0", repos = "https://cran.rstudio.com/", "NAMESPACE")) == 498)
   expect_true(length(pac_namespace("dplyr", version = "0.8.0")) == 10)
   expect_identical(sort(pac_namespace("memoise", local = TRUE)$exports), sort(base::getNamespaceExports("memoise")))
   expect_identical(pac_namespace("dplyr", "1.1.1.1"), NA)

@@ -23,6 +23,8 @@ Default: \code{list(scope = character(0), flavor = NULL)}}
 
 \item{exclude_joint}{\code{integer} exclude packages which are dependencies of at least N other packages, not count main package dependencies. Default: \code{0}}
 
+\item{file}{\code{character} file name to read. Possible values are \code{DESCRIPTION}, \code{NEWS} and \code{NAMESPACE}.}
+
 \item{fields}{\code{character} vector listing the types of dependencies, a subset of \code{c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")}.
 Character string "all" is shorthand for that vector, character string "most" for the same vector without "Enhances", character string "strong" (default) for the first three elements of that vector.
 Default: \code{c("Depends", "Imports", "LinkingTo")}}

@@ -17,13 +17,7 @@ pac_description <- function(pac,
                             local = FALSE,
                             lib.loc = .libPaths(),
                             repos = "https://cran.rstudio.com/") {
-  stopifnot((isFALSE(local)) ||
-    (isTRUE(local) && (is.null(version) || isTRUE(utils::packageDescription(pac, lib.loc = lib.loc)$Version == version))))
-  stopifnot(all(c(is.null(version), is.null(at))) || xor(!is.null(version), !is.null(at)))
-  stopifnot(is.null(at) || inherits(at, "Date"))
-  stopifnot(length(pac) == 1 && is.character(pac))
-  stopifnot(is.null(lib.loc) || (all(lib.loc %in% .libPaths()) && (length(list.files(lib.loc)) > 0)))
-  stopifnot(is.null(version) || (length(version) == 1 && is.character(version)))
+  validate_pac_input(pac, version, at, local, lib.loc, repos)
 
   is_installed <- isTRUE(pac %in% rownames(installed_packages(lib.loc = lib.loc)))
   if ((!is_installed && local) || (!local && !is_online())) {
@@ -84,12 +78,11 @@ pac_description_dcf_raw <- function(pac, version, repos = "https://cran.rstudio.
     silent = TRUE
   )
   if (inherits(tt, "try-error")) {
-    result <- cran_archive_file(pac, version, repos, "DESCRIPTION")
+    result <- read_cran_file(pac, version, "DESCRIPTION", repos)
   } else {
     result <- as.list(read.dcf(ee)[1, ])
   }
   unlink(ee)
-
   structure(result, package = pac, version = version)
 }
 
