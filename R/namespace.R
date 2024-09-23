@@ -80,7 +80,7 @@ pac_readnamespace_raw <- function(pac, version, repos = "https://cran.rstudio.co
     silent = TRUE
   )
   if (inherits(tt, "try-error")) {
-    result <- cran_archive_file(pac, version, "NAMESPACE", repos)
+    result <- read_cran_file(pac, version, "NAMESPACE", repos)
   } else {
     result <- readLines(ee, warn = FALSE)
     unlink(ee)

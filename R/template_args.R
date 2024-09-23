@@ -12,6 +12,7 @@
 #' Default: `list(scope = character(0), flavor = NULL)`
 #' @param description_v `logical` if the dependencies version should be taken from description files, minimal required. By default installed versions are taken. Default: `FALSE`
 #' @param exclude_joint `integer` exclude packages which are dependencies of at least N other packages, not count main package dependencies. Default: `0`
+#' @param file `character` file name to read. Possible values are `DESCRIPTION`, `NEWS` and `NAMESPACE`.
 #' @param fields `character` vector listing the types of dependencies, a subset of `c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")`.
 #' Character string "all" is shorthand for that vector, character string "most" for the same vector without "Enhances", character string "strong" (default) for the first three elements of that vector.
 #' Default: `c("Depends", "Imports", "LinkingTo")`

@@ -1,11 +1,10 @@
 #' Read a file from CRAN
 #' @description Read a file from CRAN package source.
-#' @param pac `character` package name.
-#' @param version `character` package version.
-#' @param repos `character` vector repositories URLs to use. Used only for the validation. Default `https://cran.rstudio.com/`
-#' @param file `character` file name to read. Possible values are `DESCRIPTION` and `NAMESPACE`.
+#' @inheritParams standard_args
 #' @keywords internal
-cran_archive_file <- function(pac, version, file, repos = "https://cran.rstudio.com/") {
+read_cran_file <- function(pac, version, file, repos = "https://cran.rstudio.com/") {
+  stopifnot(is_online())
+
   last_version <- pac_last(pac, repos)
 
   if (isTRUE(!is.null(version) && version != last_version)) {
@@ -35,7 +34,7 @@ cran_archive_file <- function(pac, version, file, repos = "https://cran.rstudio.
   )
 
   if (inherits(download, "try-error")) {
-    result <- structure(list(), package = pac, version = version)
+    result <- NA
   } else {
     temp_dir <- tempdir()
     utils::untar(temp_tar, exdir = temp_dir)

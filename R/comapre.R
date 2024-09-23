@@ -194,6 +194,10 @@ pac_compare_news <- function(pac,
 
   stopifnot(utils::compareVersion(new, old) >= 0)
 
+  if (utils::compareVersion(new, old) == 0) {
+    return(NA)
+  }
+
   version_pattern <- function(version) {
       paste0("#.*", version)
   }
@@ -204,7 +208,7 @@ pac_compare_news <- function(pac,
 
   old_version_reg <- regexpr(version_pattern(old), pac_news)
   which_matched_old <- which(old_version_reg > 0)[1]
-  old_version_pos <- if (which_matched_old > 0) {
+  old_version_pos <- if (isTRUE(which_matched_old > 0)) {
     which_matched_old
   } else {
     NA
@@ -212,7 +216,7 @@ pac_compare_news <- function(pac,
 
   new_version_reg <- regexpr(version_pattern(new), pac_news)
   which_matched_new <- which(new_version_reg > 0)[1]
-  new_version_pos <- if (which_matched_new > 0) {
+  new_version_pos <- if (isTRUE(which_matched_new > 0)) {
     which_matched_new
   } else {
     NA
@@ -222,7 +226,7 @@ pac_compare_news <- function(pac,
     return(NA)
   }
 
-  result <- pac_news[new_version_pos:(old_version_pos - 1)]
+  result <- pac_news[new_version_pos:max(c(old_version_pos - 1, 1))]
   result
 }
 

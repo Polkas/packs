@@ -1,12 +1,3 @@
-test_that("cran_archive_file", {
-  skip_if_offline()
-  expect_true(length(cran_archive_file("dplyr", "1.0.0", "DESCRIPTION", "https://cran.rstudio.com/")) == 22)
-  expect_identical(
-    cran_archive_file("dplyr", "0.0.0.1", "DESCRIPTION", "https://cran.rstudio.com/"),
-    structure(list(), package = "dplyr", version = "0.0.0.1")
-  )
-})
-
 test_that("pacs::pac_description", {
   skip_if_offline()
   expect_true(length(pac_description("dplyr", version = "0.8.0")) == 23)

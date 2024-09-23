@@ -83,11 +83,12 @@ pac_readnews_raw <- function(pac, version, repos = "https://cran.rstudio.com/") 
     silent = TRUE
   )
   if (inherits(tt, "try-error")) {
-    result <- cran_archive_file(pac, version, "NEWS", repos)
+    result <- read_cran_file(pac, version, "NEWS", repos)
   } else {
-    res <- readLines(ee)
+    result <- readLines(ee)
     unlink(ee)
   }
+  result
 }
 
 pac_readnews <- memoise::memoise(pac_readnews_raw, cache = cachem::cache_mem(max_age = 30 * 60))

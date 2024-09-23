@@ -1,9 +1,9 @@
 # pacs 0.5.1.9000
 
-* add NEWS file related functions, pac_news and pac_compare_news.
-* improve code base.
+* add new functions: pac_news and pac_compare_news. Functions are NEWS file related.
 * update the tinyverse vignette with a new badge url.
 * fix a problem with app_deps on R 3.6.
+* improve code base.
 
 # pacs 0.5.1
 

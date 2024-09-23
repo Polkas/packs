@@ -78,12 +78,11 @@ pac_description_dcf_raw <- function(pac, version, repos = "https://cran.rstudio.
     silent = TRUE
   )
   if (inherits(tt, "try-error")) {
-    result <- cran_archive_file(pac, version, "DESCRIPTION", repos)
+    result <- read_cran_file(pac, version, "DESCRIPTION", repos)
   } else {
     result <- as.list(read.dcf(ee)[1, ])
   }
   unlink(ee)
-
   structure(result, package = pac, version = version)
 }
 
