@@ -5,7 +5,7 @@ test_that("pacs::pac_description", {
     pac_description("memoise", local = TRUE)$Version,
     pac_description("memoise", local = FALSE)$Version
   ) %in% c(0, -1))
-  expect_identical(pac_description("dplyr", "1.1.1.1"), NA)
+  expect_identical(pac_description("dplyr", "10.1.1.1"), NA)
   expect_identical(pac_description("WRONG"), NA)
   expect_identical(pac_description("WRONG", local = TRUE), NA)
   expect_identical(pac_description("dplyr", "0.0.0.1"), NA)

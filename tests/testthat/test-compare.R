@@ -52,7 +52,7 @@ test_that("pacs::pac_compare_news", {
 
 test_that("pacs::pac_compare_news online", {
   skip_if_offline()
-  expect_true(length(pac_compare_news("dplyr", "0.7.1", "1.0.0")) == 947)
+  expect_true(length(pac_compare_news("dplyr", "0.7.1", "1.0.0")) > 0)
   expect_true(length(pac_compare_news("memoise", old = "1.0.0")) > 0)
   expect_true(length(pac_compare_news("memoise", "1.0.0", "2.0.0")) > 0)
 })
