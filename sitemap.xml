@@ -24,6 +24,7 @@
 <url><loc>/reference/pac_checkpage.html</loc></url>
 <url><loc>/reference/pac_checkred.html</loc></url>
 <url><loc>/reference/pac_compare_namespace.html</loc></url>
+<url><loc>/reference/pac_compare_news.html</loc></url>
 <url><loc>/reference/pac_compare_versions.html</loc></url>
 <url><loc>/reference/pac_deps.html</loc></url>
 <url><loc>/reference/pac_deps_dev.html</loc></url>
@@ -37,13 +38,18 @@
 <url><loc>/reference/pac_last.html</loc></url>
 <url><loc>/reference/pac_lifeduration.html</loc></url>
 <url><loc>/reference/pac_namespace.html</loc></url>
+<url><loc>/reference/pac_news.html</loc></url>
 <url><loc>/reference/pac_size.html</loc></url>
 <url><loc>/reference/pac_timemachine.html</loc></url>
 <url><loc>/reference/pac_true_size.html</loc></url>
 <url><loc>/reference/pac_validate.html</loc></url>
 <url><loc>/reference/pacs_base.html</loc></url>
 <url><loc>/reference/pacs_lifeduration.html</loc></url>
+<url><loc>/reference/read_cran_file.html</loc></url>
+<url><loc>/reference/read_github_file.html</loc></url>
 <url><loc>/reference/standard_args.html</loc></url>
+<url><loc>/reference/validate_compare_input.html</loc></url>
 <url><loc>/reference/validate_online.html</loc></url>
+<url><loc>/reference/validate_pac_input.html</loc></url>
 </urlset>
 

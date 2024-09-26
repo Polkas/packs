@@ -103,6 +103,10 @@ Default: <code>list(scope = character(0), flavor = NULL)</code></p></dd>
 <dd><p><code>integer</code> exclude packages which are dependencies of at least N other packages, not count main package dependencies. Default: <code>0</code></p></dd>
 
 
+<dt id="arg-file">file<a class="anchor" aria-label="anchor" href="#arg-file"></a></dt>
+<dd><p><code>character</code> file name to read. Possible values are <code>DESCRIPTION</code>, <code>NEWS</code> and <code>NAMESPACE</code>.</p></dd>
+
+
 <dt id="arg-fields">fields<a class="anchor" aria-label="anchor" href="#arg-fields"></a></dt>
 <dd><p><code>character</code> vector listing the types of dependencies, a subset of <code>c("Depends", "Imports", "LinkingTo", "Suggests", "Enhances")</code>.
 Character string "all" is shorthand for that vector, character string "most" for the same vector without "Enhances", character string "strong" (default) for the first three elements of that vector.
@@ -217,7 +221,7 @@ Default: <code>"cran"</code></p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.9000.</p>
 </div>
 
       </footer></div>
