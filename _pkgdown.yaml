@@ -13,12 +13,14 @@ reference:
 - title: CRAN Package Releases
 - contents:
   - pac_timemachine
-- title: NAMESPACE and DESCRIPTION
+- title: NAMESPACE, NEWS and DESCRIPTION
 - contents:
   - pac_description
   - pac_namespace
+  - pac_news
   - pac_compare_namespace
   - pac_compare_versions
+  - pac_compare_news
 - title: Validation Functions
 - contents:
   - ends_with("validate")
