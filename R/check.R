@@ -148,15 +148,16 @@ read_checkred_packages_raw <- function(url = "https://cran.r-project.org/web/che
         nmachines_empty
       }
     })
-    result_raw <- do.call(rbind, checks_text)
+    checks_text_bind <- do.call(rbind, checks_text)
 
     html_base <- suppressWarnings(read_html(paste0(rrr[2:length_rrr], collapse = "\n")))
-    package_names <- trimws(xml_text(xml_find_all(html_base, "/html/body//tr/td[1]")))
-    package_versions <- trimws(xml_text(xml_find_all(html_base, "/html/body//tr/td[2]")))
-    package_maintainer <- trimws(xml_text(xml_find_all(html_base, "/html/body//tr/td[last()-1]")))
-    package_priority <- trimws(xml_text(xml_find_all(html_base, "/html/body//tr/td[last()]")))
+    xml_base <- xml_find_all(html_base, "/html/body//tr")
+    package_names <- trimws(xml_text(xml_find_all(xml_base, "td[1]")))
+    package_versions <- trimws(xml_text(xml_find_all(xml_base, "td[2]")))
+    package_maintainer <- trimws(xml_text(xml_find_all(xml_base, "td[last()-1]")))
+    package_priority <- trimws(xml_text(xml_find_all(xml_base, "td[last()]")))
 
-    result_raw <- as.data.frame(cbind(package_names, package_versions, result_raw, package_maintainer, package_priority))
+    result_raw <- as.data.frame(cbind(package_names, package_versions, checks_text_bind, package_maintainer, package_priority))
     colnames(result_raw) <- header
   } else {
     result_raw <- NA
