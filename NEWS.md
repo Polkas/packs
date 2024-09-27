@@ -1,8 +1,10 @@
 # pacs 0.5.1.9000
 
+* fix `checked_packages` as there is a new DOM structure.
+* fix `pac_deps_timemachine` which not works in some cases.
+* fix a problem with app_deps on R 3.6.
 * add new functions: pac_news and pac_compare_news. Functions are NEWS file related.
 * update the tinyverse vignette with a new badge url.
-* fix a problem with app_deps on R 3.6.
 * improve code base.
 
 # pacs 0.5.1
