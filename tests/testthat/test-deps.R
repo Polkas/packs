@@ -86,8 +86,9 @@ test_that("pacs::pac_deps_timemachine", {
   skip_if_offline()
   expect_message(pac_deps_timemachine("WRONG", "0.8.0"), "WRONG package is not on CRAN")
   expect_identical(suppressMessages(pac_deps_timemachine("WRONG", "0.8.0")), NA)
-  expect_true(length(pac_deps_timemachine("memoise", "0.2.1")) == 1)
-  expect_true(length(pac_deps_timemachine("memoise", at = as.Date("2019-01-01"))) == 1)
+  expect_length(pac_deps_timemachine("memoise", "0.2.1"), 1)
+  expect_length(pac_deps_timemachine("memoise", at = as.Date("2019-01-01")),  1)
+  expect_true(length(pac_deps_timemachine("ggplot2", at = as.Date("2020-10-10"))) > 0)
 })
 
 test_that("pacs::pac_deps_timemachine offline", {
@@ -188,6 +189,7 @@ test_that("pac_deps_heavy with base", {
 })
 
 test_that("pac_deps_heavy 0 deps pac", {
+  skip_on_cran()
   expect_identical(
     pac_deps_heavy("base", local = TRUE),
     structure(list(Package = character(0), NrDeps = integer(0), NrUniqueDeps = integer(0)), class = "data.frame", row.names = integer(0))

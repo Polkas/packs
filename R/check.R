@@ -137,11 +137,27 @@ read_checkred_packages_raw <- function(url = "https://cran.r-project.org/web/che
     header_machines <- trimws(gsub("check_flavors.html#", "", xml_attr(xml_find_all(header_raw, "//a"), "href")))
     which_machines <- grep("r-", header)
     header[which_machines] <- header_machines
-    result_raw <- matrix(trimws(xml_text(xml_find_all(read_html(paste0(rrr[2:length_rrr], collapse = "\n")), "/html/body//tr/td"))),
-      ncol = length(header),
-      byrow = TRUE
-    )
-    result_raw <- as.data.frame(result_raw)
+
+    nmachines <- length(header_machines)
+    nmachines_empty <- rep("", nmachines)
+    checks_text <- lapply(rrr[2:length_rrr], function(e) {
+      res_true <- trimws(xml_text(xml_find_all(read_html(paste0(e, collapse = "\n")), "/html/body//tr/td[@class]")))
+      if (length(res_true) == nmachines) {
+        res_true
+      } else {
+        nmachines_empty
+      }
+    })
+    checks_text_bind <- do.call(rbind, checks_text)
+
+    html_base <- suppressWarnings(read_html(paste0(rrr[2:length_rrr], collapse = "\n")))
+    xml_base <- xml_find_all(html_base, "/html/body//tr")
+    package_names <- trimws(xml_text(xml_find_all(xml_base, "td[1]")))
+    package_versions <- trimws(xml_text(xml_find_all(xml_base, "td[2]")))
+    package_maintainer <- trimws(xml_text(xml_find_all(xml_base, "td[last()-1]")))
+    package_priority <- trimws(xml_text(xml_find_all(xml_base, "td[last()]")))
+
+    result_raw <- as.data.frame(cbind(package_names, package_versions, checks_text_bind, package_maintainer, package_priority))
     colnames(result_raw) <- header
   } else {
     result_raw <- NA

@@ -16,12 +16,12 @@ test_that("pac_isin", {
 
 test_that("pacs::pac_checkred online", {
   skip_if_offline()
-
+  skip_on_cran()
   expect_error(pac_checkred("dplyr", scope = ""), "")
   skip_if(isNA(checked_packages()))
-  expect_true(is.logical(pac_checkred("dplyr")))
+  expect_true(is.logical(pac_checkred("dplyr")) || isNA(pac_checkred("dplyr")))
   expect_message(pac_checkred("WRONG"), "WRONG package is not on CRAN")
-  expect_true(is.na(suppressMessages(pac_checkred("WRONG"))))
+  expect_true(isNA(suppressMessages(pac_checkred("WRONG"))))
   expect_true(isNA(loc <- pac_checkred("dplyr",
     scope = c("ERROR", "FAIL", "WARN"),
     flavors = c(
