@@ -86,8 +86,9 @@ test_that("pacs::pac_deps_timemachine", {
   skip_if_offline()
   expect_message(pac_deps_timemachine("WRONG", "0.8.0"), "WRONG package is not on CRAN")
   expect_identical(suppressMessages(pac_deps_timemachine("WRONG", "0.8.0")), NA)
-  expect_true(length(pac_deps_timemachine("memoise", "0.2.1")) == 1)
-  expect_true(length(pac_deps_timemachine("memoise", at = as.Date("2019-01-01"))) == 1)
+  expect_length(pac_deps_timemachine("memoise", "0.2.1"), 1)
+  expect_length(pac_deps_timemachine("memoise", at = as.Date("2019-01-01")),  1)
+  expect_length(pacs::pac_deps_timemachine("ggplot2", at = as.Date("2020-10-10")), 42)
 })
 
 test_that("pacs::pac_deps_timemachine offline", {

@@ -69,8 +69,10 @@ pac_deps_timemachine <- function(pac,
       # not care about many versions for certain apckage as we taking the newset version
       if (isTRUE(r != "R" && r != pac && (!r %in% paks_global))) {
         pks <- pac_description(r, at = at, local = FALSE)
-        paks_global <<- c(stats::setNames(r, pks$Version), paks_global[paks_global != r])
-        if (recursive) deps(r, at, pks[fields])
+        if (is.list(pks)) {
+          paks_global <<- c(stats::setNames(r, pks$Version), paks_global[paks_global != r])
+          if (recursive) deps(r, at, pks[fields])
+        }
       }
     }
   }
