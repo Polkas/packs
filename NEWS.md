@@ -1,3 +1,7 @@
+# pacs 0.6.0.9000
+
+* improve the tinyverse vignette.
+
 # pacs 0.6.0
 
 * fix `checked_packages` as there is a new DOM structure.
